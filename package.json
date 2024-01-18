@@ -1,0 +1,15 @@
+{
+  "name": "express-app-alab",
+  "version": "1.0.0",
+  "description": "express app with template engine",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
