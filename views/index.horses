@@ -6,10 +6,15 @@
   </head>
 
   <body>
+  <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/horses">Horses</a></li>
+        <li><a href="/seahorses">Seahorses</a></li>
+    </ul>
     <div id="app">
       <h1>#title#</h1>
       <img src="#image-src#">
-       <form action="/download" method="post">
+       <form action="/horse/download" method="post">
         <button type="submit">Download Image</button>
     </form>
       <div>#content#</div>

@@ -10,6 +10,8 @@ const fs = require('fs');
 // Use static middleware
 app.use(express.static('public'));
 
+
+
 // define custom engine  "seahorses" 
 app.engine("seahorses", (filePath, options, callback) => {
     //read file in the filepath
@@ -47,7 +49,7 @@ app.use(loadingData);
 app.get("/:anyhorse", (req, res) => {
     let options;
     
-    if(req.params.anyhorse.toLowerCase() === "horse"){
+    if(req.params.anyhorse.toLowerCase() === "horses"){
         options = {
             title: "This is a horse",
             content: "A horse is a large, four-legged mammal known for its strength, speed, and domestication by humans. Horses are commonly used for various purposes, including riding, racing, work in agriculture, and as companions. They have a distinctive anatomy, including hooves, a mane, and a tail, and they belong to the family Equidae. Horses have played a significant role in human history and continue to be important in various cultures and activities worldwide.",
@@ -57,11 +59,11 @@ app.get("/:anyhorse", (req, res) => {
         }
       
     }
-    else if(req.params.anyhorse.toLowerCase() === "seahorse"){
+    else if(req.params.anyhorse.toLowerCase() === "seahorses"){
         options = {
            title: "This is a seahorse",
            content: "A seahorse is a small marine fish characterized by its unique appearance, with a horse-like head, a prehensile tail, and a vertical posture. Seahorses belong to the family Syngnathidae and are known for their distinctive features, such as a bony exoskeleton, lack of scales, and the ability of males to carry and give birth to offspring. They are typically found in shallow tropical and temperate waters, often clinging to seagrasses or coral reefs. Seahorses are notable for their intricate courtship behaviors and their fascinating, camouflaging abilities in aquatic environments.",
-           imgSrc :  "/seahorse.jpg"
+           imgSrc: "/seahorse.jpg"
        
         }
      
@@ -71,12 +73,18 @@ app.get("/:anyhorse", (req, res) => {
 });
 // I still need to work on this part. The post request to download the image does not work
 app.post("/:anyhorse/download", (req, res) =>{
-    if (req.params.anyhorse.toLowerCase() === "horse/download"){
+    if (req.params.anyhorse.toLowerCase() === "horse"){
      
-        res.download('./horse.webp', 'horse.webp');
+        res.download('./public/horse.webp', 'horse.webp');
+    }
+    else if (req.params.anyhorse.toLowerCase() === "seahorse"){
+     
+        res.download('./public/seahorse.jpg', 'seahorse.jpg');
     }
 })
-
+app.get("/", (req,res) =>{
+    res.sendFile(__dirname + "/index.html");
+});
 function loadingData(req, res, next){
     console.log("Loading Data...");
     next();
