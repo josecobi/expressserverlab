@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>#title#</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>#title#</h1>
+      <img src="#image-src#">
+       <form action="/download" method="post">
+        <button type="submit">Download Image</button>
+    </form>
+      <div>#content#</div>
+      
+    </div>
+  </body>
+</html>
